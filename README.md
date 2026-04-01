@@ -58,11 +58,22 @@ The dashboard will open in your browser at `http://localhost:8501`
 
 ```
 .
-├── customer_churn.py              # Data processing & model training
-├── streamlit_app.py               # Interactive dashboard
-├── customer_churn_prediction.csv  # Dataset
-├── requirements.txt               # Project dependencies
-└── README.md                      # This file
+├── customer_churn.py                    # Data processing & model training
+├── streamlit_app.py                     # Interactive dashboard
+├── customer_churn_prediction.csv        # Dataset
+├── requirements.txt                     # Project dependencies
+├── README.md                            # Main documentation
+├── MySQL/                               # Database scripts & schema
+│   ├── README.md
+│   ├── schema.sql                       # Database structure
+│   ├── queries.sql                      # SQL queries
+│   └── data_import.sql                  # Data import scripts
+├── Tableau/                             # Visualizations & dashboards
+│   ├── README.md
+│   ├── churn_analysis.twbx
+│   ├── customer_insights.twbx
+│   └── PDF_exports/
+└── .gitignore                           # Git ignore rules
 ```
 
 ## Technologies Used
@@ -71,6 +82,48 @@ The dashboard will open in your browser at `http://localhost:8501`
 - **Pandas** - Data manipulation and analysis
 - **Scikit-learn** - Machine learning
 - **Streamlit** - Web dashboard framework
+- **MySQL** - Database management & queries
+- **Tableau** - Data visualization & BI dashboards
+
+## Project Components
+
+### 1. Python Machine Learning (customer_churn.py)
+Core ML pipeline that:
+- Loads and cleans customer data
+- Preprocesses categorical and numerical features
+- Trains a Random Forest classifier
+- Generates model evaluation metrics
+
+### 2. Interactive Web Dashboard (streamlit_app.py)
+User-friendly interface for:
+- Uploading custom datasets
+- Training models with configurable parameters
+- Making predictions on new customers
+- Viewing real-time performance metrics
+
+### 3. MySQL Database (MySQL/)
+Contains:
+- Database schema with customer and churn tables
+- Historical queries for data analysis
+- Scripts to prepare and import data
+- Connection patterns for integration
+
+### 4. Tableau Visualizations (Tableau/)
+Business intelligence dashboards featuring:
+- Churn analysis by customer segment
+- Trend analysis over time
+- Customer behavior insights
+- Interactive filters and drill-downs
+
+## Workflow
+
+```
+Data (CSV) → MySQL Database → Python ML Model → Predictions
+                     ↓
+            Tableau Dashboards ← SQL Queries
+                     ↓
+            Streamlit Dashboard ← ML Model
+```
 
 ## Model Performance
 

@@ -42,6 +42,15 @@ venv.bak/
 streamlit_cache/
 .streamlit_cache/
 
+# Tableau
+*.twbx.bak
+.Tableau*
+Tableau_temp/
+
+# MySQL
+*.bak
+*.dump
+
 # Jupyter Notebook
 .ipynb_checkpoints/
 *.ipynb
