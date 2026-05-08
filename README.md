@@ -1,104 +1,102 @@
-# Customer Churn Prediction & Analysis
+# 📉 Customer Churn Prediction
 
-**Can we identify which telecom customers are likely to leave — before they do?**
+> Predicting customer churn using Random Forest classification, MySQL analysis, Tableau dashboards, and an interactive Streamlit web app.
 
-This project analyses customer behaviour data to uncover churn patterns, builds a predictive model, and presents findings through an interactive dashboard — the kind of end-to-end analytical workflow used by DA teams at product companies.
-
----
-
-## Business Problem
-
-Customer churn is one of the most expensive problems in telecom. Acquiring a new customer costs 5–7× more than retaining an existing one. This project answers:
-
-- Which customer segments have the highest churn rate?
-- What behavioural signals predict churn before it happens?
-- Which customers should retention teams prioritise?
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-orange?logo=scikit-learn)
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red?logo=streamlit)
+![MySQL](https://img.shields.io/badge/MySQL-Database-blue?logo=mysql)
+![Tableau](https://img.shields.io/badge/Tableau-Visualization-lightblue?logo=tableau)
 
 ---
 
-## Dataset
+## 🎯 Problem Statement
 
-- **Source:** Telecom customer churn dataset (public)
-- **Size:** 500+ customer records
-- **Key columns:** Contract type, tenure, monthly charges, tech support usage, churn status
+Customer churn is one of the most costly problems for subscription-based businesses. This project builds an end-to-end ML pipeline to identify **which customers are likely to leave**, enabling proactive retention strategies.
 
 ---
 
-## Approach
+## ✅ Model Performance
 
-### 1. SQL Analysis (MySQL)
-Queried the database to identify churn patterns by segment:
-- Churn rate by contract type (month-to-month vs annual)
-- Average tenure of churned vs retained customers
-- Revenue at risk by customer segment
-
-### 2. Python EDA & Modelling
-- Cleaned data: handled missing values, encoded categoricals, scaled numerical features
-- Explored distributions and correlations using Pandas
-- Built a **Random Forest classifier** — achieved **75% accuracy, 0.69 precision, 0.70 recall**
-
-### 3. Tableau Dashboard
-Interactive dashboard showing:
-- Churn rate by contract type, tenure band, and service usage
-- Customer risk segmentation
-- Key drivers of churn
-
-### 4. Streamlit Web App
-Live prediction tool — input customer details, get churn probability instantly.
+| Metric | Score |
+|--------|-------|
+| **Accuracy** | **75%** |
+| **Precision** | **0.69** |
+| Algorithm | Random Forest |
 
 ---
 
-## Key Findings
+## 🖥️ Dashboard Preview
 
-1. **Month-to-month contract customers churn at 3× the rate** of annual contract customers — the single strongest churn predictor
-2. **Customers in their first 12 months are the highest risk** — churn rate drops sharply after year 1, suggesting onboarding experience is critical
-3. **Customers without tech support are significantly more likely to churn** — bundling support services could improve retention
+> *Run `streamlit run streamlit_app.py` to launch the interactive dashboard locally.*
 
----
-
-## Business Recommendation
-
-Retention campaigns should prioritise: new customers (< 12 months tenure) on month-to-month contracts who have not enrolled in tech support. This segment represents the highest churn risk and the highest ROI for intervention.
+*(Screenshot coming soon)*
 
 ---
 
-## Tech Stack
-
-| Tool | Purpose |
-|---|---|
-| Python (Pandas, Scikit-learn) | EDA + ML model |
-| MySQL | SQL analysis + querying |
-| Tableau | Business dashboard |
-| Streamlit | Interactive prediction app |
-
----
-
-## Project Structure
+## 🗂️ Project Structure
 
 ```
-Customer-Churn-Prediction/
-├── customer_churn.py          # EDA + model training
-├── streamlit_app.py           # Interactive dashboard
-├── customer_churn_prediction.csv
+├── customer_churn.py                 # ML pipeline: data cleaning, training, evaluation
+├── streamlit_app.py                  # Interactive Streamlit dashboard
+├── customer_churn_prediction.csv     # Dataset
+├── requirements.txt                  # Dependencies
 ├── MySQL/
-│   ├── schema.sql
-│   ├── queries.sql            # Churn analysis queries
-│   └── data_import.sql
-├── Tableau/
-│   ├── churn_analysis.twbx
-│   └── customer_insights.twbx
-└── requirements.txt
+│   ├── schema.sql                    # Database structure
+│   ├── queries.sql                   # Analytical SQL queries
+│   └── data_import.sql               # Data import scripts
+└── Tableau/
+    ├── churn_analysis.twbx           # Churn breakdown by segment
+    └── customer_insights.twbx        # Customer behavior dashboard
 ```
 
-## Run Locally
+---
+
+## ⚙️ How to Run Locally
 
 ```bash
+# 1. Clone the repo
 git clone https://github.com/pranav-codes55/Customer-Churn-Prediction.git
 cd Customer-Churn-Prediction
+
+# 2. Install dependencies
 pip install -r requirements.txt
+
+# 3. Train the model
+python customer_churn.py
+
+# 4. Launch the dashboard
 streamlit run streamlit_app.py
+```
+The app opens at `http://localhost:8501`
+
+---
+
+## 🔧 Tech Stack
+
+| Layer | Tools |
+|-------|-------|
+| Language | Python 3.x |
+| ML | Scikit-learn (Random Forest) |
+| Data | Pandas, NumPy |
+| Dashboard | Streamlit |
+| Database | MySQL |
+| Visualization | Tableau |
+
+---
+
+## 📊 What the Pipeline Does
+
+```
+CSV Data → MySQL (storage + SQL analysis) → Python ML Model → Predictions
+                        ↓
+               Tableau Dashboards ← SQL Queries
+                        ↓
+               Streamlit Dashboard ← Model Output
 ```
 
 ---
 
-*Built by Pranav R P · PES University CSE · [LinkedIn](https://www.linkedin.com/in/pranav-rp-a89635314/)*
+## 👤 Author
+
+**Pranav R P** — [LinkedIn](https://www.linkedin.com/in/pranav-rp-a89635314/) · [GitHub](https://github.com/pranav-codes55)
